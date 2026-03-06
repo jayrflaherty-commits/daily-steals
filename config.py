@@ -7,7 +7,8 @@ load_dotenv(override=True)
 NEWSLETTER_NAME        = "Daily Steals"
 NEWSLETTER_DIR         = "daily-steals"
 TAGLINE                = "The best deals of the day — straight to your inbox"
-SEND_HOUR              = 7   # 7:15 AM ET (GitHub Actions offset handles the :15)
+SEND_HOUR              = 7
+SEND_MINUTE            = 15
 TIMEZONE               = "America/New_York"
 
 ANTHROPIC_API_KEY      = os.getenv("ANTHROPIC_API_KEY", "")

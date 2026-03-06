@@ -72,6 +72,7 @@ def main():
         draft=args.draft,
         tags=["daily-steals", for_date.isoformat()],
         send_hour_et=config.SEND_HOUR,
+        send_minute_et=config.SEND_MINUTE,
     )
 
     status = "DRAFT" if args.draft else "SCHEDULED"

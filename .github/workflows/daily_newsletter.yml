@@ -2,7 +2,7 @@ name: Daily Steals — Daily Send
 
 on:
   schedule:
-    - cron: '15 11 * * *'   # 7:15 AM ET (11:15 UTC)
+    - cron: '5 4 * * *'   # 11 PM ET (generate night before, schedules for next morning)   # 7:15 AM ET (11:15 UTC)
   workflow_dispatch:
     inputs:
       date:
