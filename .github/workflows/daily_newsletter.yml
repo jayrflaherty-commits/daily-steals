@@ -2,7 +2,7 @@ name: Daily Steals — Daily Send
 
 on:
   schedule:
-    - cron: '15 11 * * *'   # 7:15 AM ET (11:15 UTC) — staggered from Silver & Cents
+    - cron: '15 11 * * *'   # 7:15 AM ET (11:15 UTC)
   workflow_dispatch:
     inputs:
       date:
@@ -20,9 +20,6 @@ on:
 jobs:
   send-newsletter:
     runs-on: ubuntu-latest
-    defaults:
-      run:
-        working-directory: daily-steals
 
     steps:
       - uses: actions/checkout@v4
@@ -38,8 +35,8 @@ jobs:
       - name: Run Daily Steals generator
         env:
           ANTHROPIC_API_KEY:                   ${{ secrets.ANTHROPIC_API_KEY }}
-          DAILY_STEALS_BEEHIIV_API_KEY:        ${{ secrets.DAILY_STEALS_BEEHIIV_API_KEY }}
-          DAILY_STEALS_BEEHIIV_PUBLICATION_ID: ${{ secrets.DAILY_STEALS_BEEHIIV_PUBLICATION_ID }}
+          DAILY_STEALS_BEEHIIV_API_KEY:        ${{ secrets.BEEHIIV_API_KEY }}
+          DAILY_STEALS_BEEHIIV_PUBLICATION_ID: ${{ secrets.BEEHIIV_PUBLICATION_ID }}
         run: |
           ARGS=""
           if [ "${{ github.event.inputs.date }}" != "" ]; then ARGS="$ARGS --date ${{ github.event.inputs.date }}"; fi
